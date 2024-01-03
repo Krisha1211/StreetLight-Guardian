@@ -4,14 +4,14 @@ const mongoose = require("mongoose");
 const hbs = require("hbs");
 const User = require("./models/user"); // Import your User model
 const FeedbackCounter = require("./models/feedbackCounter"); // Import the counter model
-const mainRoute = require("./routes/main");
+const complainRoute = require("./routes/complain");
 const thanksRoute = require("./routes/thanks");
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/public", express.static("public"));
-app.use("", mainRoute);
+app.use("", complainRoute);
 app.use("", thanksRoute);
 
 // hbs engine

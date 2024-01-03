@@ -1,0 +1,71 @@
+<html lang="en" class="dark">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body style="background-color: #111827;" class="m-4">
+  <form class="max-w-md mx-auto">
+    <div class="relative z-0 w-full mb-5 group">
+
+      <label for="ElectricityBoard" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Electricity
+        Board</label>
+      <input type="text" id="ElectricityBoard" name="electricityBoard"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+
+
+      <label for="PoleNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pole Number</label>
+      <input type="text" id="PoleNumber" name="poleNumber"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <label for="City" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
+      <input type="text" id="City" name="city"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+
+      <label for="SubStation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sub Station</label>
+      <input type="text" id="SubStation" name="subStation"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+
+      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complain
+        Header</label>
+      <select id="countries"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option value="none" selected disabled hidden>Select Complain Header</option>
+        <option value="Non-functional Streeetlight">Non-functional
+          Streeetlight</option>
+        <option value="Damaged Pole">Damaged Pole</option>
+        <option value="other">Other</option>
+      </select>
+
+
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+
+      <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complaint
+        Details</label>
+      <textarea id="message" name="complaintDetails" rows="4"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Write more..."></textarea>
+
+    </div>
+
+    <button type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+  </form>
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</body>
+
+</html>
