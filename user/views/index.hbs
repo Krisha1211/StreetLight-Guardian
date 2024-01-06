@@ -7,7 +7,7 @@
 </head>
 
 <body style="background-color: #111827;" class="m-4">
-  <form class="max-w-md mx-auto">
+  <form id="myForm" class="max-w-md mx-auto" method="POST" action="/" onsubmit="addLocationToForm(event)">
     <div class="relative z-0 w-full mb-5 group">
 
       <label for="ElectricityBoard" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Electricity
@@ -60,12 +60,52 @@
 
     </div>
 
+    <input type="hidden" id="latitude" name="latitude">
+    <input type="hidden" id="longitude" name="longitude">
+
     <button type="submit"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
   </form>
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <script>
+    function addLocationToForm(event) {
+      // Prevent the form from submitting before adding location
+      event.preventDefault();
+
+      // Get the user's location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            // Success callback
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            // Create a hidden input field and add it to the form
+            const latitudeInput = document.getElementById("latitude");
+            latitudeInput.value = `${latitude}`;
+
+            const longitudeInput = document.getElementById("longitude");
+            longitudeInput.value = `${longitude}`;
+
+            document.getElementById("myForm").submit()
+          },
+          function (error) {
+            // Error callback
+            console.error("Error getting location:", error.message);
+            // If there is an error, you might want to submit the form without location data or handle it in some way
+            document.getElementById("myForm").submit();
+          }
+        );
+      } else {
+        // Geolocation is not supported by the browser
+        console.error("Geolocation is not supported by your browser");
+        // If geolocation is not supported, you might want to submit the form without location data or handle it in some way
+        document.getElementById("myForm").submit();
+      }
+    }
+  </script>
 </body>
 
 </html>

@@ -19,6 +19,8 @@ router.post("/", async (req, res) => {
             complaintHeader: req.body.complaintHeader,
             complaintDetails: req.body.complaintDetails,
             complaintNumber: complaintNumber,
+            latitude: req.body.latitude,
+            longitude:req.body.longitude
         });
 
         // Save the user document to the database

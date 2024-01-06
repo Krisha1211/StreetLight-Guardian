@@ -7,7 +7,10 @@ const user = mongoose.Schema({
     subStation: String,
     complaintHeader: String,
     conplaintDetails: String,
-    complaintNumber: Number
+    complaintNumber: Number,
+    latitude: String,
+    longitude: String,
+    timestamp: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("user", user);
