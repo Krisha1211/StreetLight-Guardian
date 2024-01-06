@@ -1,6 +1,6 @@
 const express = require("express");
 const feedbackCounter = require("../models/feedbackCounter");
-const user = require("../models/user");
+const user = require("../models/complains");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -8,24 +8,24 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-        const complaintNumber = await generateUniqueFeedbackNumber();
+    const complaintNumber = await generateUniqueFeedbackNumber();
 
-        // Create a new user document
-        const newUser = new user({
-            electricityBoard: req.body.electricityBoard,
-            poleNumber: req.body.poleNumber,
-            city: req.body.city,
-            subStation: req.body.subStation,
-            complaintHeader: req.body.complaintHeader,
-            complaintDetails: req.body.complaintDetails,
-            complaintNumber: complaintNumber,
-            latitude: req.body.latitude,
-            longitude:req.body.longitude
-        });
+    // Create a new user document
+    const newUser = new user({
+        electricityBoard: req.body.electricityBoard,
+        poleNumber: req.body.poleNumber,
+        city: req.body.city,
+        subStation: req.body.subStation,
+        complaintHeader: req.body.complaintHeader,
+        complaintDetails: req.body.complaintDetails,
+        complaintNumber: complaintNumber,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude
+    });
 
-        // Save the user document to the database
+    // Save the user document to the database
     await newUser.save();
-    
+
     res.redirect("/thanks");
 });
 

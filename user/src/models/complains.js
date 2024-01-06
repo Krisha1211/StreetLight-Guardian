@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const user = mongoose.Schema({
+const complain = mongoose.Schema({
     electricityBoard: String,
     poleNumber: String,
     city: String,
@@ -13,4 +13,4 @@ const user = mongoose.Schema({
     timestamp: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("user", user);
+module.exports = mongoose.model("complains", complain);
