@@ -1,0 +1,112 @@
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/css/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body style="background-color: #111827;">
+    <form class="max-w-md mx-auto p-5" method="POST" action="/status">
+        <div class="relative z-0 w-full mb-5 group">
+            <h1
+                class="mb-4 text-center text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                Check Your Complain Status Here</h1>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <label for="complainNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complain
+                Number</label>
+            <input type="text" id="complainNumber" name="complainNumber"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Enter your complain number" required>
+        </div>
+
+        <button type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    </form>
+
+    {{#if data}}
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
+        <table class="max-w-lg mx-auto text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <tbody>
+                <tr class="border border-gray-200 dark:border-gray-700">
+                    <th scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        STATUS
+                    </th>
+                    <td class="px-6 py-4 dark:bg-gray-800">
+                        {{data.status}}
+                    </td>
+                </tr>
+                <tr class="border border-gray-200 dark:border-gray-700">
+                    <th scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        Complain Number
+                    </th>
+                    <td class="px-6 py-4 dark:bg-gray-800">
+                        {{data.complainNumber}}
+                    </td>
+
+                </tr>
+                <tr class="border border-gray-200 dark:border-gray-700">
+                    <th scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        District
+                    </th>
+                    <td class="px-6 py-4 dark:bg-gray-800">
+                        {{data.district}}
+                    </td>
+
+                </tr>
+                <tr class="border border-gray-200 dark:border-gray-700">
+                    <th scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        Area
+                    </th>
+                    <td class="px-6 py-4 dark:bg-gray-800">
+                        {{data.area}}
+                    </td>
+
+                </tr>
+                <tr class="border border-gray-200 dark:border-gray-700">
+                    <th scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        Pole Number
+                    </th>
+                    <td class="px-6 py-4 dark:bg-gray-800">
+                        {{data.poleNumber}}
+                    </td>
+
+                </tr>
+                <tr class="border border-gray-200 dark:border-gray-700">
+                    <th scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        Complain Header
+                    </th>
+                    <td class="px-6 py-4 dark:bg-gray-800">
+                        {{data.complainHeader}}
+                    </td>
+                </tr>
+                <tr class="border border-gray-200 dark:border-gray-700">
+                    <th scope="row"
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        Complain Details
+                    </th>
+                    <td class="px-6 py-4 dark:bg-gray-800">
+                        {{data.complainDetails}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {{/if}}
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</body>
+
+</html>

@@ -5,14 +5,14 @@ const hbs = require("hbs");
 const User = require("./models/complains"); // Import your User model
 const FeedbackCounter = require("./models/feedbackCounter"); // Import the counter model
 const complainRoute = require("./routes/complain");
-const thanksRoute = require("./routes/thanks");
+const statusRoute = require("./routes/status");
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/public", express.static("public"));
 app.use("", complainRoute);
-app.use("", thanksRoute);
+app.use("", statusRoute);
 
 // hbs engine
 app.set("view engine", "hbs");

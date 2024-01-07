@@ -6,39 +6,46 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
 </head>
 
-<body style="background-color: #111827;" class="m-4">
-  <form id="myForm" class="max-w-md mx-auto" method="POST" action="/" onsubmit="addLocationToForm(event)">
+<body style="background-color: #111827;">
+<div class="p-5"></div>
+
+  <form id="myForm" class="max-w-md mx-auto p-5" method="POST" action="/" onsubmit="addLocationToForm(event)">
+    <div class="relative z-0 w-full mb-5 group">
+      <h1
+        class="mb-4 text-center text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+        Street Light Complain</h1>
+    </div>
     <div class="relative z-0 w-full mb-5 group">
 
-      <label for="ElectricityBoard" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Electricity
-        Board</label>
-      <input type="text" id="ElectricityBoard" name="electricityBoard"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <label for="district" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">District</label>
+      <select id="district" name="district"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        required>
+        <option value="none" selected disabled hidden>Select District</option>
+        {{#each dist}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
     </div>
     <div class="relative z-0 w-full mb-5 group">
 
 
-      <label for="PoleNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pole Number</label>
-      <input type="text" id="PoleNumber" name="poleNumber"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <label for="area" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area</label>
+      <input type="text" id="area" name="area"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        required>
     </div>
     <div class="relative z-0 w-full mb-5 group">
-      <label for="City" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
-      <input type="text" id="City" name="city"
+      <label for="poleNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pole Number</label>
+      <input type="text" id="poleNumber" name="poleNumber"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     </div>
 
     <div class="relative z-0 w-full mb-5 group">
 
-      <label for="SubStation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sub Station</label>
-      <input type="text" id="SubStation" name="subStation"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    </div>
-    <div class="relative z-0 w-full mb-5 group">
-
-      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complain
+      <label for="complainHeader" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complain
         Header</label>
-      <select id="countries"
+      <select id="complainHeader" name="complainHeader"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="none" selected disabled hidden>Select Complain Header</option>
         <option value="Non-functional Streeetlight">Non-functional
@@ -54,7 +61,7 @@
 
       <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complaint
         Details</label>
-      <textarea id="message" name="complaintDetails" rows="4"
+      <textarea id="message" name="complainDetails" rows="4"
         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         placeholder="Write more..."></textarea>
 
@@ -62,12 +69,17 @@
 
     <input type="hidden" id="latitude" name="latitude">
     <input type="hidden" id="longitude" name="longitude">
-
+    
     <button type="submit"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <p class="text-gray-500 dark:text-gray-400">**Please give us location permission for exact location of fault.**</p>
+
+
   </form>
 
-  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
   <script>
     function addLocationToForm(event) {
