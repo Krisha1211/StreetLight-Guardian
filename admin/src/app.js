@@ -11,6 +11,7 @@ const dashboardRoute = require("./routes/dashboard")
 const loginRoute = require("./routes/login")
 const createAdminRoute = require("./routes/createAdmin")
 const Admin = require("./models/admins")
+const viewComplainRoute = require("./routes/viewComplains")
 
 const app = express();
 
@@ -38,6 +39,7 @@ passport.deserializeUser(Admin.deserializeUser());
 app.use('', loginRoute)
 app.use('', createAdminRoute)
 app.use('', dashboardRoute)
+app.use('', viewComplainRoute)
 
 main().catch((err) => console.log(err));
 
