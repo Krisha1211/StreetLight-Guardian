@@ -23,6 +23,65 @@
         </div>
     </form>
 
+    <div class="relative border rounded-lg dark:border-gray-600 overflow-x-auto mt-4">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        District
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Area
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Pole Number
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Complain Header
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Complain Details
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Complain Number
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each complains}}
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    
+                    <td class="px-6 py-4">
+                        {{this.district}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{this.area}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{this.poleNumber}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{this.complainHeader}}
+                    </td>
+                    <td class="px-6 py-4 w-auto ">
+                        {{this.complainDetails}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{this.complainNumber}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{this.status}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+
 </div>
 </div>
 {{>footer}}

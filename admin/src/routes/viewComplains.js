@@ -15,14 +15,19 @@ router.get('/viewComplains', async (req, res) => {
                     { district: { $regex: searchRegex } },
                     { area: { $regex: searchRegex } },
                     { complainHeader: { $regex: searchRegex } },
-                    { complainNumber: { $regex: searchRegex } },
                     { status: { $regex: searchRegex } },
-                ],
+                    // Adding complainNumber condition if the search query is a valid number
+                    !isNaN(req.query.search)
+                        ? { complainNumber: parseInt(req.query.search) }
+                        : null,
+                ].filter(Boolean), // Remove null values from the array
             };
         }
 
         // Fetch complaints based on the query
         const complains = await Complains.find(query);
+
+        console.log(complains);
 
         // Return the complaints as JSON
         res.render('viewComplains', { complains, searchQuery: req.query.search });
