@@ -10,7 +10,7 @@
                 <dl
                     class="grid max-w-screen-xl grid-cols-1 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white sm:p-8">
                     <div class="flex flex-col items-center justify-center">
-                        <dt class="mb-2 text-3xl font-extrabold">73+</dt>
+                        <dt class="mb-2 text-3xl font-extrabold">{{countLast24Hours}}</dt>
                         <dd class="text-gray-500 dark:text-gray-400">New complains in last 24 hours</dd>
                     </div>
                 
@@ -21,7 +21,7 @@
                 <dl
                     class="grid max-w-screen-xl grid-cols-1 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white sm:p-8">
                     <div class="flex flex-col items-center justify-center">
-                        <dt class="mb-2 text-3xl font-extrabold">73+</dt>
+                        <dt class="mb-2 text-3xl font-extrabold">{{countLastWeek}}</dt>
                         <dd class="text-gray-500 dark:text-gray-400">New complains in last week</dd>
                     </div>
                 
@@ -32,7 +32,7 @@
                     <dl
                         class="grid max-w-screen-xl grid-cols-1 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-1 xl:grid-cols-1 dark:text-white sm:p-8">
                         <div class="flex flex-col items-center justify-center">
-                            <dt class="mb-2 text-3xl font-extrabold">73+</dt>
+                            <dt class="mb-2 text-3xl font-extrabold">{{countLastMonth}}</dt>
                             <dd class="text-gray-500 dark:text-gray-400">New complains in last month</dd>
                         </div>
                         
@@ -45,16 +45,16 @@
                 <dl
                     class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-3 dark:text-white sm:p-8">
                     <div class="flex flex-col items-center justify-center">
-                        <dt class="mb-2 text-3xl font-extrabold">73+</dt>
+                        <dt class="mb-2 text-3xl font-extrabold">{{countPending}}</dt>
                         <dd class="text-gray-500 dark:text-gray-400">Pending Complains</dd>
                     </div>
                     <div class="flex flex-col items-center justify-center">
-                        <dt class="mb-2 text-3xl font-extrabold">100+</dt>
+                        <dt class="mb-2 text-3xl font-extrabold">{{countUnderProcess}}</dt>
                         <dd class="text-gray-500 dark:text-gray-400">In Progress Complains</dd>
                     </div>
                     <div class="flex flex-col items-center justify-center">
-                        <dt class="mb-2 text-3xl font-extrabold">100+</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Solved projects</dd>
+                        <dt class="mb-2 text-3xl font-extrabold">{{countSolved}}</dt>
+                        <dd class="text-gray-500 dark:text-gray-400">Solved Complains</dd>
                     </div>
                 </dl>
             </div>
