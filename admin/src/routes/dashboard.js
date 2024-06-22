@@ -9,7 +9,7 @@ const connectEnsureLogin = require('connect-ensure-login');
 
 // });
 
-router.get('/dashboard', (req, res) => {
+router.get('/', (req, res) => {
     // This route is protected; only authenticated users can access it
     res.render('dashboard'); // Render your dashboard template or perform other actions
 

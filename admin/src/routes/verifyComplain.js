@@ -2,9 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Complains = require("../models/complains")
 
-router.get('/viewComplains', async (req, res) => {
+
+router.get('/verifyComplain', async (req, res) => {
     try {
-        let query = {};
+
+        let query = {
+            status: { $in: ['Pending', 'Under Process'] }
+        };
 
         // Check if the search query is provided
         if (req.query.search) {
@@ -23,19 +27,33 @@ router.get('/viewComplains', async (req, res) => {
                 ].filter(Boolean), // Remove null values from the array
             };
         } else {
-            query = {}
+            query = {
+                status: { $in: ['Pending', 'Under Process'] }
+            };
         }
 
         // Fetch complaints based on the query
         const complains = await Complains.find(query);
 
         // Return the complaints as JSON
-        res.render('viewComplains', { complains, searchQuery: req.query.search });
+        res.render('verifyComplain', { complains, searchQuery: req.query.search });
     } catch (error) {
         console.error('Error fetching complaints:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
+})
+
+// New route to handle complaint verification
+router.post('/verifyComplain/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Complains.findByIdAndUpdate(id, { status: 'Under Process' });
+
+        res.redirect('/verifyComplain');
+    } catch (error) {
+        console.error('Error updating status:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
 
-
-module.exports = router;
+module.exports = router

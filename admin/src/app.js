@@ -12,6 +12,7 @@ const loginRoute = require("./routes/login")
 const createAdminRoute = require("./routes/createAdmin")
 const Admin = require("./models/admins")
 const viewComplainRoute = require("./routes/viewComplains")
+const verifyComplainRoute = require("./routes/verifyComplain")
 
 const app = express();
 
@@ -29,8 +30,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.set('view engine', 'hbs');
-app.set('views', './admin/views');
-hbs.registerPartials('./admin/views/partials');
+app.set('views', 'admin/views');
+hbs.registerPartials('admin/views/partials');
 
 passport.use(Admin.createStrategy());
 passport.serializeUser(Admin.serializeUser());
@@ -40,6 +41,11 @@ app.use('', loginRoute)
 app.use('', createAdminRoute)
 app.use('', dashboardRoute)
 app.use('', viewComplainRoute)
+app.use('', verifyComplainRoute)
+
+hbs.registerHelper('eq', function (arg1, arg2) {
+    return (arg1 == arg2) ? true : false;
+});
 
 main().catch((err) => console.log(err));
 
