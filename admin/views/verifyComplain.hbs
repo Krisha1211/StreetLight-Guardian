@@ -49,6 +49,9 @@
                         <th scope="col" class="px-6 py-3">
                             Verify
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Solved
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,6 +89,24 @@
                             </form>
                             {{/if}}
                         </td>
+                        {{#if (eq this.status 'Under Process')}}
+                        <td class="px-6 py-4">
+
+                            {{#if (eq this.status 'Solved')}}
+                            <p class="text-green-500">Solved</p>
+                            {{else}}
+                            <form method="POST" action="/solveComplain/{{this._id}}">
+                                <button type="submit"
+                                    class="verify-button text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">
+                                    Mark as solved
+                                </button>
+                            </form>
+                            {{/if}}
+                        </td>
+                        {{else}}
+                        <td class="px-6 py-4">
+                        </td>
+                        {{/if}}
                     </tr>
                     {{/each}}
                 </tbody>

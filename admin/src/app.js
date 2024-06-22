@@ -13,6 +13,7 @@ const createAdminRoute = require("./routes/createAdmin")
 const Admin = require("./models/admins")
 const viewComplainRoute = require("./routes/viewComplains")
 const verifyComplainRoute = require("./routes/verifyComplain")
+const mapRoute = require("./routes/map")
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.use('', createAdminRoute)
 app.use('', dashboardRoute)
 app.use('', viewComplainRoute)
 app.use('', verifyComplainRoute)
+app.use('',mapRoute)
 
 hbs.registerHelper('eq', function (arg1, arg2) {
     return (arg1 == arg2) ? true : false;

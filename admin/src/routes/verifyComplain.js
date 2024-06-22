@@ -35,6 +35,13 @@ router.get('/verifyComplain', async (req, res) => {
         // Fetch complaints based on the query
         const complains = await Complains.find(query);
 
+        const coordinates = complains.map(complain => [
+            parseFloat(complain.latitude),
+            parseFloat(complain.longitude)
+        ]);
+
+        console.log(coordinates);
+
         // Return the complaints as JSON
         res.render('verifyComplain', { complains, searchQuery: req.query.search });
     } catch (error) {
@@ -48,6 +55,18 @@ router.post('/verifyComplain/:id', async (req, res) => {
     try {
         const { id } = req.params;
         await Complains.findByIdAndUpdate(id, { status: 'Under Process' });
+
+        res.redirect('/verifyComplain');
+    } catch (error) {
+        console.error('Error updating status:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+router.post('/solveComplain/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Complains.findByIdAndUpdate(id, { status: 'Solved' });
 
         res.redirect('/verifyComplain');
     } catch (error) {
