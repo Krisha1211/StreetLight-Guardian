@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Complains = require("../models/complains");
+const connectEnsureLogin = require('connect-ensure-login');
 
-router.get("/map", async (req, res) => {
+router.get("/map", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
     try {
         // Fetch complaints with status 'Pending' or 'Under Process'
         const complains = await Complains.find({}, 'latitude longitude -_id'); // Select only latitude and longitude fields

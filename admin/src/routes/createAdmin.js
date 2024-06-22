@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const Admin = require('../models/admins');
+const connectEnsureLogin = require('connect-ensure-login');
 
 // Signup Route
-router.get('/createAdmin', (req, res) => {
+router.get('/createAdmin', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+
     res.render('createAdmin');
 });
 

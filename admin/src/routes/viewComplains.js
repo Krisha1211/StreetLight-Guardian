@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Complains = require("../models/complains")
+const connectEnsureLogin = require('connect-ensure-login');
 
-router.get('/viewComplains', async (req, res) => {
+router.get('/viewComplains', connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
     try {
         let query = {};
 

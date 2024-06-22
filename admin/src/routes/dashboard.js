@@ -12,7 +12,7 @@ const Complains = require('../models/complains');
 
 // });
 
-router.get('/',async (req, res) => {
+router.get('/', connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 
     try {
         const now = new Date();
